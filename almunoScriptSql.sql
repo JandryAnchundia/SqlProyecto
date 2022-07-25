@@ -12,7 +12,10 @@ create database if not exists alumno;
 use alumno;
 
 
+
+-- ---------------------------------------
 -- Creacion de tabla de Carrera
+-- ---------------------------------------
 create table if not exists carrera (
 	id 				int 			not null auto_increment,
     nombreCarrera 	varchar(150) 	not null,
@@ -67,8 +70,9 @@ insert into alumno (id, nombre, edad, semestre, genero, idCarrera  ) values (0, 
 select * from alumno;
 
 
-
+-- ---------------------------------------
 -- Creacion de tabla de Becas
+-- ---------------------------------------
 create table if not exists becas (
 	id 			int 			not null auto_increment,
     tipoBeca 	varchar(150) 	not null,
@@ -84,9 +88,9 @@ insert into becas (id, tipoBeca) values (3, 'TRANSPORTE');
 SELECT * FROM BECAS;
 
 
-
+-- ---------------------------------------
 -- Creacion de tabla de Materia
-
+-- ---------------------------------------
 create table if not exists materia (
 	id 				int 		not null 	auto_increment,
     nombreMateria 	varchar(60) not null, 
@@ -96,16 +100,12 @@ create table if not exists materia (
 ) engine = innodb;
 
 -- INSERSION DE DATOS EN LA TABLA DE MATERIA
-insert into materia (id,  nombreMateria, creditosMateria  ) values (0, 'BASE DE DATOS', '4%');
-insert into materia (id,  nombreMateria, creditosMateria  ) values (0, 'BASE DE DATOS', '4%');
-insert into materia (id,  nombreMateria, creditosMateria  ) values (0, 'BASE DE DATOS', '4%');
-insert into materia (id,  nombreMateria, creditosMateria  ) values (0, 'BASE DE DATOS', '4%');
-insert into materia (id,  nombreMateria, creditosMateria  ) values (0, 'BASE DE DATOS', '4%');
-insert into materia (id,  nombreMateria, creditosMateria  ) values (0, 'BASE DE DATOS', '4%');
-insert into materia (id,  nombreMateria, creditosMateria  ) values (0, 'BASE DE DATOS', '4%');
-insert into materia (id,  nombreMateria, creditosMateria  ) values (0, 'BASE DE DATOS', '4%');
-insert into materia (id,  nombreMateria, creditosMateria  ) values (0, 'BASE DE DATOS', '4%');
-insert into materia (id,  nombreMateria, creditosMateria  ) values (0, 'BASE DE DATOS', '4%');
+insert into materia (id,  nombreMateria, creditosMateria  ) values (0, 'BASE DE DATOS', '20%');
+insert into materia (id,  nombreMateria, creditosMateria  ) values (0, 'TEORIA DE CONJUNTOS', '20%');
+insert into materia (id,  nombreMateria, creditosMateria  ) values (0, 'METAFISICA', '20%');
+insert into materia (id,  nombreMateria, creditosMateria  ) values (0, 'ALGEBRA LINEAL', '20%');
+insert into materia (id,  nombreMateria, creditosMateria  ) values (0, 'CALCULO', '20%');
+
 
 SELECT * FROM MATERIA;
 
@@ -113,12 +113,15 @@ SELECT * FROM MATERIA;
 
 
 
-
+-- -------------------------------------------
 -- Creacion de tabla intermedia de alumnoBecas
-
+-- -------------------------------------------
 create table if not exists alumnoBecas (
+	id 				int 			not null auto_increment,
 	idBecas			int 			not null,
 	idAlumno		int 			not null,
+	fechaInicio		date			not null,
+    primary key (id),
     
 	constraint fkAlumnoBecasBecas
 		foreign key (idBecas)
@@ -135,9 +138,28 @@ create table if not exists alumnoBecas (
 ) engine = innodb;
 
 
+-- INSERSION DE DATOS SOBRE EL TIEMPO EN QUE LLEVA SIENDO BENEFICARIO DE LA BECA
 
+insert into alumnoBecas (id, idBecas, idAlumno, fechaInicio	) values(0, 1, 2, '2019-12-31');
+insert into alumnoBecas (id, idBecas, idAlumno, fechaInicio	) values(0, 1, 2, '2019-12-31');
+insert into alumnoBecas (id, idBecas, idAlumno, fechaInicio	) values(0, 1, 2, '2019-12-31');
+insert into alumnoBecas (id, idBecas, idAlumno, fechaInicio	) values(0, 1, 1, '2019-12-31');
+insert into alumnoBecas (id, idBecas, idAlumno, fechaInicio	) values(0, 2, 2, '2019-12-31');
+insert into alumnoBecas (id, idBecas, idAlumno, fechaInicio	) values(0, 3, 1, '2019-12-31');
+insert into alumnoBecas (id, idBecas, idAlumno, fechaInicio	) values(0, 2, 3, '2019-12-31');
+insert into alumnoBecas (id, idBecas, idAlumno, fechaInicio	) values(0, 1, 2, '2019-12-31');
+select *  from alumnoBecas;
+
+
+
+
+
+
+
+
+-- ---------------------------------------
 -- Creacion de tabla de Profesor
-
+-- ---------------------------------------
 create table if not exists profesor (
 
 id			int 		 not null 	auto_increment, 
@@ -171,12 +193,14 @@ insert into profesor (id, nombre, direccion, genero, telefono, horario  ) values
 
 
 
-
+-- ---------------------------------------
 -- Creacion de tabla de alumnoProfesor
-
+-- ---------------------------------------
 create table if not exists alumnoProfesor (
+	id 				int 			not null auto_increment,
 	idAlumno		int 			not null,
 	idProfesor		int 			not null,
+    primary key (id),
     
     
     
@@ -199,12 +223,17 @@ create table if not exists alumnoProfesor (
 
 
 
-SELECT *FROM ALUMNO;
-
+SELECT * FROM ALUMNO;
+-- ---------------------------------------
 -- Creacion de tabla de alumnoMateria
+-- ---------------------------------------
 create table if not exists alumnoMateria (
-	idAlumno		int 			not null,
-	idMateria		int 			not null,
+	id 					int 			not null auto_increment,
+	idAlumno			int 			not null,
+	idMateria			int 			not null,
+    promedioParcial_1 	int 			not null,
+    promedioParcial_2	int				not null,
+    primary key (id),
     
      constraint fkAlumnoMateriaAlumno
 		foreign key (idAlumno)
@@ -221,8 +250,13 @@ create table if not exists alumnoMateria (
 ) engine = innodb;
 
 
+insert into alumnoMateria (id, idAlumno, idMateria, promedioParcial_1, promedioParcial_2) values(0, 2, 3, 3, 9);
+insert into alumnoMateria (id, idAlumno, idMateria, promedioParcial_1, promedioParcial_2) values(0, 1, 1, 7, 9);
+insert into alumnoMateria (id, idAlumno, idMateria, promedioParcial_1, promedioParcial_2) values(0, 3, 1, 7, 9);
+insert into alumnoMateria (id, idAlumno, idMateria, promedioParcial_1, promedioParcial_2) values(0, 1, 3, 2, 9);
+insert into alumnoMateria (id, idAlumno, idMateria, promedioParcial_1, promedioParcial_2) values(0, 2, 3, 7, 9);
 
-SELECT * FROM ALUMNO;
+SELECT * FROM ALUMNOMAteria;
 
 
 
