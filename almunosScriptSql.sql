@@ -1,17 +1,15 @@
 -- CODIGO CON MEJOR PERFORMANCE E INSERSION DE DATOS. CORRECCIONES AÑADIDAS Y TABULACIONES.
 
 -- Eliminacion de la base de datos (para evitar errores)
-drop database if exists alumno;
+drop database if exists alumnos;
 
 
 -- Creacion de la base de datos
-create database if not exists alumno;
+create database if not exists alumnos;
 
 
 -- Utilizacion de la base de datos 
-use alumno;
-
-
+use alumnos;
 
 -- ---------------------------------------
 -- Creacion de tabla de Carrera
@@ -140,14 +138,14 @@ create table if not exists alumnoBecas (
 
 -- INSERSION DE DATOS SOBRE EL TIEMPO EN QUE LLEVA SIENDO BENEFICARIO DE LA BECA
 
-insert into alumnoBecas (id, idBecas, idAlumno, fechaInicio	) values(0, 1, 2, '2019-12-31');
-insert into alumnoBecas (id, idBecas, idAlumno, fechaInicio	) values(0, 1, 2, '2019-12-31');
-insert into alumnoBecas (id, idBecas, idAlumno, fechaInicio	) values(0, 1, 2, '2019-12-31');
 insert into alumnoBecas (id, idBecas, idAlumno, fechaInicio	) values(0, 1, 1, '2019-12-31');
-insert into alumnoBecas (id, idBecas, idAlumno, fechaInicio	) values(0, 2, 2, '2019-12-31');
-insert into alumnoBecas (id, idBecas, idAlumno, fechaInicio	) values(0, 3, 1, '2019-12-31');
-insert into alumnoBecas (id, idBecas, idAlumno, fechaInicio	) values(0, 2, 3, '2019-12-31');
 insert into alumnoBecas (id, idBecas, idAlumno, fechaInicio	) values(0, 1, 2, '2019-12-31');
+insert into alumnoBecas (id, idBecas, idAlumno, fechaInicio	) values(0, 1, 3, '2019-12-31');
+insert into alumnoBecas (id, idBecas, idAlumno, fechaInicio	) values(0, 1, 3, '2019-12-31');
+insert into alumnoBecas (id, idBecas, idAlumno, fechaInicio	) values(0, 2, 4, '2019-12-31');
+insert into alumnoBecas (id, idBecas, idAlumno, fechaInicio	) values(0, 3, 5, '2019-12-31');
+insert into alumnoBecas (id, idBecas, idAlumno, fechaInicio	) values(0, 2, 6, '2019-12-31');
+insert into alumnoBecas (id, idBecas, idAlumno, fechaInicio	) values(0, 1, 7, '2019-12-31');
 select *  from alumnoBecas;
 
 
@@ -163,7 +161,7 @@ select *  from alumnoBecas;
 create table if not exists profesor (
 
 id			int 		 not null 	auto_increment, 
-nombre		varchar(60)  not null, 
+nombreProfesor	varchar(60)  not null, 
 direccion	varchar(245) not null,
 genero 		varchar(45)  not null,
 telefono 	varchar(45)	 not null,
@@ -174,25 +172,15 @@ primary key (id)
 
 
 -- INSERSION DE DATOS EN LA TABLA DE PROFESOR
-insert into profesor (id, nombre, direccion, genero, telefono, horario  ) values (0, 'Jandry Anchundia', '9 de Octubre', 'MASCULINO', '096949494', 'DE 7AM A 1PM');
-insert into profesor (id, nombre, direccion, genero, telefono, horario  ) values (0, 'Jandry Anchundia', '9 de Octubre', 'MASCULINO', '096949494', 'DE 7AM A 1PM');
-insert into profesor (id, nombre, direccion, genero, telefono, horario  ) values (0, 'Jandry Anchundia', '9 de Octubre', 'MASCULINO', '096949494', 'DE 7AM A 1PM');
-insert into profesor (id, nombre, direccion, genero, telefono, horario  ) values (0, 'Jandry Anchundia', '9 de Octubre', 'MASCULINO', '096949494', 'DE 7AM A 1PM');
-insert into profesor (id, nombre, direccion, genero, telefono, horario  ) values (0, 'Jandry Anchundia', '9 de Octubre', 'MASCULINO', '096949494', 'DE 7AM A 1PM');
-insert into profesor (id, nombre, direccion, genero, telefono, horario  ) values (0, 'Jandry Anchundia', '9 de Octubre', 'MASCULINO', '096949494', 'DE 7AM A 1PM');
-insert into profesor (id, nombre, direccion, genero, telefono, horario  ) values (0, 'Jandry Anchundia', '9 de Octubre', 'MASCULINO', '096949494', 'DE 7AM A 1PM');
-insert into profesor (id, nombre, direccion, genero, telefono, horario  ) values (0, 'Jandry Anchundia', '9 de Octubre', 'MASCULINO', '096949494', 'DE 7AM A 1PM');
-insert into profesor (id, nombre, direccion, genero, telefono, horario  ) values (0, 'Jandry Anchundia', '9 de Octubre', 'MASCULINO', '096949494', 'DE 7AM A 1PM');
-insert into profesor (id, nombre, direccion, genero, telefono, horario  ) values (0, 'Jandry Anchundia', '9 de Octubre', 'MASCULINO', '096949494', 'DE 7AM A 1PM');
-insert into profesor (id, nombre, direccion, genero, telefono, horario  ) values (0, 'Jandry Anchundia', '9 de Octubre', 'MASCULINO', '096949494', 'DE 7AM A 1PM');
-insert into profesor (id, nombre, direccion, genero, telefono, horario  ) values (0, 'Jandry Anchundia', '9 de Octubre', 'MASCULINO', '096949494', 'DE 7AM A 1PM');
-insert into profesor (id, nombre, direccion, genero, telefono, horario  ) values (0, 'Jandry Anchundia', '9 de Octubre', 'MASCULINO', '096949494', 'DE 7AM A 1PM');
-insert into profesor (id, nombre, direccion, genero, telefono, horario  ) values (0, 'Jandry Anchundia', '9 de Octubre', 'MASCULINO', '096949494', 'DE 7AM A 1PM');
-insert into profesor (id, nombre, direccion, genero, telefono, horario  ) values (0, 'Jandry Anchundia', '9 de Octubre', 'MASCULINO', '096949494', 'DE 7AM A 1PM');
-
-
-
-
+insert into profesor (id, nombreProfesor, direccion, genero, telefono, horario  ) values (0, 'ELMER Anchundia', '9 de Octubre', 'MASCULINO', '096949494', 'DE 7AM A 1PM');
+insert into profesor (id, nombreProfesor, direccion, genero, telefono, horario  ) values (0, 'DAVID Anchundia', '9 de Octubre', 'MASCULINO', '096949494', 'DE 7AM A 1PM');
+insert into profesor (id, nombreProfesor, direccion, genero, telefono, horario  ) values (0, 'JOSE Anchundia', '9 de Octubre', 'MASCULINO', '096949494', 'DE 7AM A 1PM');
+insert into profesor (id, nombreProfesor, direccion, genero, telefono, horario  ) values (0, 'MIGUEL Anchundia', '9 de Octubre', 'MASCULINO', '096949494', 'DE 7AM A 1PM');
+insert into profesor (id, nombreProfesor, direccion, genero, telefono, horario  ) values (0, 'Jandry Anchundia', '9 de Octubre', 'MASCULINO', '096949494', 'DE 7AM A 1PM');
+insert into profesor (id, nombreProfesor, direccion, genero, telefono, horario  ) values (0, 'Jandry Anchundia', '9 de Octubre', 'MASCULINO', '096949494', 'DE 7AM A 1PM');
+insert into profesor (id, nombreProfesor, direccion, genero, telefono, horario  ) values (0, 'Jandry Anchundia', '9 de Octubre', 'MASCULINO', '096949494', 'DE 7AM A 1PM');
+insert into profesor (id, nombreProfesor, direccion, genero, telefono, horario  ) values (0, 'Jandry Anchundia', '9 de Octubre', 'MASCULINO', '096949494', 'DE 7AM A 1PM');
+i
 -- ---------------------------------------
 -- Creacion de tabla de alumnoProfesor
 -- ---------------------------------------
