@@ -25,7 +25,12 @@ from alumno, becas
 inner join alumnobecas on alumnobecas.idBecas = alumnoBecas.idAlumno;
 select * from informacionAlumnosBeca;
 
+-- vista de las materias 
 
+create or replace view informacionMateria as
+select nombreMateria, creditosMateria
+from materia;
+select * from  informacionMateria;
 
 
 -- Vista sobre los profesores y los alumnos
