@@ -1,0 +1,10 @@
+0.- Creacion de Esquema y tablas: En este archivo se crea el esquema alumnos y sus respectivas tablas.
+1.- Data insertion: Este archivo contiene el script de insercion de datos.
+2.- Views: Esta carpeta contiene el script de las vistas.
+3.- Function: Aquí se encuentran las funciones que se incluyeron en el proyecto.
+4.- Stored Procedures: Contiene los procedimientos almacenados.
+5.- Triggers + Tablas Log: Esta carpeta contiene a los dos disparadores para el proyecto.
+6.- Script DCL: Creaciones de 2 Usuarios
+7.- Script TCL: Carpeta que contiene 2 Script de lenguaje de control
+8.- Data Import: Backup de la BB.DD 
+

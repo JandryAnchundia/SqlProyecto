@@ -20,10 +20,13 @@ select * from informacionAlumnos;
 
 -- Vista sobre los alumnos que tienen becas
 create or replace view informacionAlumnosBeca as 
-select alumno.nombre, becas.tipoBeca 
-from alumno, becas
-inner join alumnobecas on alumnobecas.idBecas = alumnoBecas.idAlumno;
+select alumno.nombre, becas.tipoBeca, alumnobecas.fechaInicio
+from alumnobecas
+inner join alumno on alumnobecas.id = alumno.id
+inner join becas  on alumnobecas.id = becas.id;
+
 select * from informacionAlumnosBeca;
+
 
 -- vista de las materias 
 
@@ -34,10 +37,25 @@ select * from  informacionMateria;
 
 
 -- Vista sobre los profesores y los alumnos
-create or replace view alumnoProfesor as
-select nombre as nombreAlumno, nombreProfesor  
-from alumno, profesor;
-select * from alumnoProfesor;
+create or replace view alumnosProfesor as
+select alumno.nombre, profesor.nombreProfesor
+from alumnoprofesor
+inner join alumno on alumnoprofesor.id= alumno.id
+inner join profesor on alumnoprofesor.id = profesor.id;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
